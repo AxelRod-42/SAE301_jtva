@@ -2,11 +2,11 @@
 
 session_start();
 
-// 1. CONNEXION À LA BASE DE DONNÉES
+
 $host = 'localhost';
-$dbname = 'stmedard_basket'; // /!\ À MODIFIER AVEC TON NOM DE BDD
+$dbname = 'stmedard_basket'; 
 $user = 'root';
-$pass = ''; // Sur Mac (MAMP), c'est souvent 'root'
+$pass = ''; '
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
