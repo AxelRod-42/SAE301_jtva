@@ -10,12 +10,16 @@
 <body>
     <?php
 
-require_once "Team.php";
+require_once __DIR__ . "/team.php";
 
 $team = new Team();
 $teams = $team->getAll();
 
 print_r($teams);
+
+echo "OK, ça marche";
+
+
 ?>
 
 </body>
