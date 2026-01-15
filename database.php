@@ -1,5 +1,6 @@
 <?php
 
+
 class Database
 {
     private static ?PDO $pdo = null;
@@ -15,7 +16,7 @@ class Database
     {
         if (self::$pdo === null) {
             self::$pdo = new PDO(
-                "mysql:host=" . self::HOST . ";dbname=" . self::DBNAME . ";charset=utf8",
+                "mysql:host=localhost;dbname=stmedard_basket;charset=utf8" . self::HOST . ";dbname=" . self::DBNAME . ";charset=utf8",
                 self::USER,
                 self::PASSWORD,
                 [
