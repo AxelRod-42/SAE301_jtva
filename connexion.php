@@ -6,7 +6,7 @@ session_start();
 $host = 'localhost';
 $dbname = 'stmedard_basket'; 
 $user = 'root';
-$pass = ''; '
+$pass = ''; 
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
