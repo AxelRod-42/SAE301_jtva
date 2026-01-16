@@ -23,11 +23,16 @@ class Article
        Méthodes métier
     ====================== */
 
-    public function getAll(): array
-    {
-        $stmt = $this->db->query("SELECT * FROM articles ORDER BY date_creation DESC");
-        return $stmt->fetchAll();
-    }
+  public function getAll(): array
+{
+    $sql = "SELECT * 
+            FROM articles 
+            WHERE statut = 'publie'
+            ORDER BY publie_le DESC";
+
+    return $this->db->query($sql)->fetchAll();
+}
+
 
     /* =====================
        Getters / Setters
