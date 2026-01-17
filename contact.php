@@ -27,25 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message = $conn->real_escape_string($_POST["message"]);
 
     // Insertion en base
-    $sql = "INSERT INTO formulaires (nom, prenom, email, telephone, genre, message)
+    $sql = "INSERT INTO inscriptions (nom, prenom, email, telephone, genre, message)
             VALUES ('$nom', '$prenom', '$email', '$telephone', '$genre', '$message')";
 
     if ($conn->query($sql) === TRUE) {
-
-        // Envoi du mail
-        $to = "thomas.bbn88@gmail.com"; // Mets l'adresse du club ici
-        $subject = "Nouveau message de contact";
-        $body = "Nom : $nom\nPrénom : $prenom\nEmail : $email\nTéléphone : $telephone\nGenre : $genre\n\nMessage :\n$message";
-
-        @mail($to, $subject, $body);
-
         $message_confirmation = "Votre message a bien été envoyé et enregistré.";
     } else {
         $message_confirmation = "Erreur lors de l'enregistrement : " . $conn->error;
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
