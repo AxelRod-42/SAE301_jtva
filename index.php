@@ -23,10 +23,28 @@
                     <li><a href="pages/actualites.php">Actualités</a></li>
                     <li><a href="pages/contact.php">Contact</a></li>
                     <div class="panier">
-                        <a href="pages/boutique.php"><img src="image/panier.png" alt="Panier" width="100" height="100"></a>
+                        <a href="pages/boutique.php"><img src="image/icone/panier.png" alt="Panier" width="100" height="100"></a>
                     </div>
                 </ul>
             </nav>
         </section>
     </header>
+    <footer>
+        <section class="down">
+            <div class="reseau">
+                <a href=""><img src="image/icone/facebook.png" alt="Facebook" width="100" height="100"></a>
+                <img src="image/icone/arrow2.png" alt="flèche" width="100" height="75">
+                <img src="image/icone/arrow.png" alt="flèche" width="100" height="75">
+                <a href="https://www.instagram.com/saint.medard.basket/"><img src="image/icone/instagram.png" alt="Instagram" width="100" height="100"></a>
+            </div>
+            <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
+            <div class="fil">   
+                <p>Page d'accueil</p>
+            </div>
+            <div class="mentions">
+                <hr>
+                <p><strong>© 2026 [St Médard Basket].</strong> Tous droits réservés. Mentions légales | Politique de confidentialité</p>
+            </div>
+        </section>
+
 
