@@ -15,9 +15,9 @@
 }
 
 body {
-    background-color: #1e1e1e;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
 }
-
 /************************** HEADER **************************/
 
 .header {
@@ -26,7 +26,7 @@ body {
 
 .top {
     position: relative;
-    height: 70vh;
+    height: 50vh;
     background:
         linear-gradient(
         to bottom,
@@ -37,7 +37,7 @@ body {
         ),
         url("../image/banniere_stmedard.png"); 
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     color: white;
 }
 
@@ -101,20 +101,88 @@ body {
     transition: transform 0.6s ease;
 }
 
+/************************** MAIN Accueil **************************/
+
+.prochain {
+  padding: 40px 20px;
+  text-align: center;
+}
+.match {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.news {
+  padding: 40px 20px;
+}
+
+.carte {
+  display: flex;
+  gap: 20px;
+  background: #e0e0e0;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.newsimg {
+  width: 120px;
+  height: 80px;
+  background: #cfcfcf;
+}
+
+.barre {
+    background-color: #1e1e1e;
+    height: 20px;
+    width: 100%;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.carteS {
+    display: flex;
+    gap: 20px;
+}
+
+.cardT {
+    width: 120px;
+    height: 120px;
+    background: #dcdcdc;
+}
+
+.une {
+  padding: 40px 20px;
+  background: #dcdcdc;
+}
+
+.uneIMG {
+  width: 100%;
+  height: 200px;
+  background: #dcdcdc;
+  margin-bottom: 10px;
+}
+
 /******************* FOOTER ********************/
 .down {
     background: linear-gradient(
         to top,
         #f6ec28 0%, 
-        #cfc840  70%,
-        #5a5a2a  90%,
-        #1e1e1e 100%  
+        #f9f27a 70%,  
+        #fffde6 80%,  
+        #ffffff 100% 
     );
-    position: relative;
     padding-bottom: 20px;
+    padding-top: 50px;
     text-align: center;
     font-family: Montserrat, sans-serif;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 

@@ -29,6 +29,53 @@
             </nav>
         </section>
     </header>
+    <main>
+        <section class="prochain">
+            <h2>Rencontre du week-end</h2>
+
+            <div class="match">
+                <span class="team">SMB</span>
+                <span class="vs">VS</span>
+                <span class="team">ADVERSAIRE</span>
+            </div>
+
+            <p class="countdown">[Compte à rebours]</p>
+        </section> 
+
+        <section class="news">
+            <article class="carte">
+                <div class="newsText">
+                <h3>The More Important the Work, the More Important the Rest</h3>
+                </div>
+                <div class="newsimg"></div>
+            </article>
+
+            <article class="carte">
+                <div class="newsText">
+                <h3>The Walt Disney company is about to close</h3>
+                </div>
+                <div class="newsimg"></div>
+            </article>
+        </section>
+
+        <section class="barre"></section>
+
+        <section class="slider">
+            <button class="left">‹</button>
+
+            <div class="carteS">
+                <div class="cardT">Titre article / photo</div>
+                <div class="cardT">Titre article / photo</div>
+            </div>
+
+            <button class="right">›</button>
+        </section>
+
+        <section class="une">
+            <div class="uneIMG"></div>
+            <h2>Article à la une</h2>
+        </section>
+    </main>
     <footer>
         <section class="down">
             <div class="reseau">
@@ -46,5 +93,8 @@
                 <p><strong>© 2026 [St Médard Basket].</strong> Tous droits réservés. Mentions légales | Politique de confidentialité</p>
             </div>
         </section>
+    </footer>
+</body>
+</html>
 
 
