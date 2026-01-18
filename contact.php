@@ -141,7 +141,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       </div>
 
       <select name="genre" required>
-        <option value="">Homme / Femme</option>
         <option value="homme">Homme</option>
         <option value="femme">Femme</option>
         <option value="autre">Autre</option>
@@ -153,6 +152,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     </form>
   </div>
-  
+
 </body>
 </html>
