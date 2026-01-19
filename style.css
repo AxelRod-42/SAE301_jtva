@@ -1,0 +1,106 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+}
+
+/* ===== TITRE BLOC GRIS ===== */
+.actus-title {
+    background: #6f6f6f;
+    color: #fff;
+    max-width: 700px;
+    margin: 40px auto 60px;
+    padding: 26px 22px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.actus-title h1 {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+
+.actus-title p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ===== CONTAINER DES CARDS ===== */
+.cards-container {
+    max-width: 1300px;
+    margin: 0 auto 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 40px;
+}
+
+/* Centrer la dernière card si nombre impair */
+.cards-container > .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 700px;
+}
+
+/* ===== CARD ===== */
+.card {
+    position: relative;
+    background: #777;
+    color: #fff;
+    padding: 30px 34px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== BADGES ===== */
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+}
+
+.badge-public {
+    background: #ffeb3b;
+    color: #000;
+}
+
+.badge-staff {
+    background: #222;
+    color: #fff;
+}
+
+/* ===== TEXTE CARD ===== */
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+.description {
+    font-size: 1.05rem;
+    margin-bottom: 22px;
+}
+
+.infos {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .cards-container > .card:last-child:nth-child(odd) {
+        max-width: 100%;
+    }
+
+    .actus-title h1 {
+        font-size: 1.8rem;
+    }
+}
