@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . "/article.php";
+require_once __DIR__ . "/event.php";
 
-$articleObj = new Article();
-$articles = $articleObj->getAll();
+$eventObj = new Event();
+$events = $eventObj->getAllEvents();
 ?>
 
 <!DOCTYPE html>
@@ -11,41 +11,49 @@ $articles = $articleObj->getAll();
     <meta charset="UTF-8">
     <title>Actualités</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/actualite.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="hero">
-    <h1>Nos équipes ont du talent !</h1>
-    <p>Résumé des matchs 2025/2026</p>
-</header>
+<main>
 
-<section class="actus-container">
+    <!-- TITRE DANS BLOC GRIS -->
+    <div class="actus-title">
+        <h1>Nos équipes ont du talent !</h1>
+        <p>Événements et temps forts du club</p>
+    </div>
 
-<?php foreach ($articles as $article): ?>
-    <article class="card">
-        <div class="card-image">
-            <?php if (!empty($article['image_url'])): ?>
-                <img src="<?= htmlspecialchars($article['image_url']) ?>" alt="">
-            <?php else: ?>
-                <div class="placeholder"></div>
-            <?php endif; ?>
-        </div>
+    <!-- CONTAINER DES CARDS -->
+    <div class="cards-container">
 
-        <div class="card-content">
-            <h2><?= htmlspecialchars($article['titre']) ?></h2>
-            <p><?= htmlspecialchars(substr($article['contenu'], 0, 80)) ?>...</p>
-            <a href="#" class="btn">Lire le résumé</a>
-        </div>
-    </article>
-<?php endforeach; ?>
+        <?php foreach ($events as $event): ?>
+            <article class="card">
 
-</section>
+                <!-- Badge -->
+                <?php if ($event['public']): ?>
+                    <span class="badge badge-public">Événement public</span>
+                <?php else: ?>
+                    <span class="badge badge-staff">Réunion staff</span>
+                <?php endif; ?>
 
-<footer class="footer">
-    <p>Suivez-nous sur nos réseaux sociaux !</p>
-</footer>
+                <h2><?= htmlspecialchars($event['titre']) ?></h2>
+
+                <p class="description">
+                    <?= htmlspecialchars($event['description']) ?>
+                </p>
+
+                <p class="infos">
+                    <?= date('d/m/Y H:i', strtotime($event['debut'])) ?>
+                    — <?= htmlspecialchars($event['lieu']) ?>
+                </p>
+
+            </article>
+        <?php endforeach; ?>
+
+    </div>
+
+</main>
 
 </body>
 </html>
