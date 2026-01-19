@@ -20,7 +20,7 @@
                     <div class="logo">
                         <a href="../index.php"><img src="../image/logo/logo_StMedard.png" alt="Logo Saint-Médard Basket" width="250" height="200"></a>
                     </div>
-                    <li><a href="actualites.php">Actualités</a></li>
+                    <li><a href="actualite.php">Actualités</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <div class="panier">
                         <a href="boutique.php"><img src="../image/icone/panier.png" alt="Panier" width="100" height="100"></a>

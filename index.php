@@ -1,31 +1,9 @@
-<<<<<<< HEAD
 <?php
-require_once __DIR__ . "/team.php";
 
-$team = new Team();
-$teams = $team->getAll();
+include "php/connexion.php";
+
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Équipes</title>
-</head>
-<body>
-
-<h1>Liste des équipes</h1>
-
-<?php foreach ($teams as $team): ?>
-    <p>
-        <strong><?= htmlspecialchars($team['nom']) ?></strong>
-        (<?= htmlspecialchars($team['categorie']) ?>)
-    </p>
-<?php endforeach; ?>
-
-</body>
-</html>
-=======
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -48,7 +26,7 @@ $teams = $team->getAll();
                     <div class="logo">
                         <a href="index.php"><img src="image/logo/logo_StMedard.png" alt="Logo Saint-Médard Basket" width="250" height="200"></a>
                     </div>
-                    <li><a href="pages/actualites.php">Actualités</a></li>
+                    <li><a href="pages/actualite.php">Actualités</a></li>
                     <li><a href="pages/contact.php">Contact</a></li>
                     <div class="panier">
                         <a href="pages/boutique.php"><img src="image/icone/panier.png" alt="Panier" width="100" height="100"></a>
@@ -126,4 +104,3 @@ $teams = $team->getAll();
 </html>
 
 
->>>>>>> main
