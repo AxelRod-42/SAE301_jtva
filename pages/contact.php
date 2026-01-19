@@ -32,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 }
 ?>
-?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -41,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <title>Accueil - Saint-Médard Basket</title>
       <link rel="stylesheet" href="../CSS/style.css"> <!--Lien vers le css-->
       <link rel="icon" type="image/x-icon" href="../image/logo/favicon.ico"><!--icone du site-->
+      <script src="../JS/script.js" defer></script>
   </head>
 <body>
   <header>
@@ -115,5 +115,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section>
     </footer>
+    <button id="retourTop">⬆</button>
 </body>
 </html>

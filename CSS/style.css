@@ -21,6 +21,30 @@ body {
     flex-direction: column;
 }
 
+/************************** JS **************************/
+
+#retourTop:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+#retourTop {
+    position: fixed;               /* Pour que le bouton reste toujours visible à l’écran */
+    bottom: 20px;                  /* espace par rapport au bas */
+    right: 20px;                   
+    padding: 10px 15px;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    background-color: #F6EC28;
+    color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: none;                /* caché quand l'utilisateur est tout en haut de la page */
+    z-index: 999;
+    border: 2px solid black;                  /* calque prioritaire sur tout le site */
+}
+
 /************************** HEADER **************************/
 
 .header {
