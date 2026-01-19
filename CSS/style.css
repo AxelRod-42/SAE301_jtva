@@ -177,6 +177,7 @@ body {
 .mainB {
     display: flex;
     justify-content: center;
+    margin: 30px 0;
 }
 .shop {
     width: 100%;
@@ -378,4 +379,83 @@ footer p {
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+/******************* MAIN Club ********************/
+
+.club {
+  width: 100%;
+  max-width: 420px;
+}
+
+.title {
+  background: #6f6f6f;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  display: inline-block;
+  background: #4a4a4a;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin: 14px 0 8px;
+}
+
+
+.map {
+  height: 140px;
+  background: #9b9b9b;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+
+.photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.photo {
+  height: 110px;
+  background: #9b9b9b;
+  border-radius: 12px;
+}
+
+.teams {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.team {
+  background: #9b9b9b;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 11px;
+}
+
+.team-img {
+  height: 60px;
+  background: rgba(255,255,255,0.2);
+}
+
+.team p {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  margin: 0;
+  padding: 4px;
 }

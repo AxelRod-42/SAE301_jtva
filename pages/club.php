@@ -29,6 +29,57 @@
             </nav>
         </section>
     </header>
+    <main class="mainB">
+         <section class="club">
+
+                <h1 class="title">Halle des sports</h1>
+
+                <div class="map">
+                    <span>Google Maps</span>
+                </div>
+
+                <h2 class="subtitle">Notre gymnase</h2>
+
+                <div class="photos">
+                <div class="photo"></div>
+                <div class="photo"></div>
+                </div>
+
+                <h2 class="subtitle">Nos équipes féminines</h2>
+
+                <div class="teams">
+                <div class="team">
+                    <div class="team-img"></div>
+                    <p>Équipe...</p>
+                </div>
+                <div class="team">
+                    <div class="team-img"></div>
+                    <p>Équipe...</p>
+                </div>
+                <div class="team">
+                    <div class="team-img"></div>
+                    <p>Équipe...</p>
+                </div>
+                </div>
+
+                <h2 class="subtitle">Nos équipes masculines</h2>
+
+                <div class="teams">
+                <div class="team">
+                    <div class="team-img"></div>
+                    <p>Équipe...</p>
+                </div>
+                <div class="team">
+                    <div class="team-img"></div>
+                    <p>Équipe...</p>
+                </div>
+                <div class="team">
+                    <div class="team-img"></div>
+                    <p>Équipe...</p>
+                </div>
+                </div>
+            </section>
+    </main>
     <footer>
         <section class="down">
             <div class="reseau">
