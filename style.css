@@ -3,96 +3,104 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
 }
 
-/* HEADER */
-.hero {
-    background: #6b6b6b;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-.hero h1 {
-    font-size: 1.5rem;
-}
-
-.hero p {
-    margin-top: 8px;
-    font-size: 0.9rem;
-}
-
-/* GRID ACTUS */
-.actus-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 16px;
-    padding: 20px;
-    background: #f4f4f4;
-}
-
-/* CARD */
-.card {
-    background: #777;
-    border-radius: 10px;
-    overflow: hidden;
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-image img,
-.placeholder {
-    width: 100%;
-    height: 150px;
-    background: #999;
-    object-fit: cover;
-}
-
-/* CONTENU */
-.card-content {
-    padding: 12px;
+/* ===== TITRE BLOC GRIS ===== */
+.actus-title {
+    background: #6f6f6f;
+    color: #fff;
+    max-width: 700px;
+    margin: 40px auto 60px;
+    padding: 26px 22px;
+    border-radius: 14px;
     text-align: center;
 }
 
-.card-content h2 {
-    font-size: 0.95rem;
+.actus-title h1 {
+    font-size: 2.2rem;
     margin-bottom: 6px;
 }
 
-.card-content p {
-    font-size: 0.75rem;
-    margin-bottom: 10px;
+.actus-title p {
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
-/* BOUTON */
-.btn {
+/* ===== CONTAINER DES CARDS ===== */
+.cards-container {
+    max-width: 1300px;
+    margin: 0 auto 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 40px;
+}
+
+/* Centrer la dernière card si nombre impair */
+.cards-container > .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 700px;
+}
+
+/* ===== CARD ===== */
+.card {
+    position: relative;
+    background: #777;
+    color: #fff;
+    padding: 30px 34px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== BADGES ===== */
+.badge {
     display: inline-block;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+}
+
+.badge-public {
+    background: #ffeb3b;
+    color: #000;
+}
+
+.badge-staff {
     background: #222;
-    color: white;
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 0.75rem;
+    color: #fff;
 }
 
-/* FOOTER */
-.footer {
-    background: linear-gradient(to top, #ffeb3b, #fff);
-    text-align: center;
-    padding: 20px;
-    font-size: 0.85rem;
+/* ===== TEXTE CARD ===== */
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
 }
 
-/* RESPONSIVE DESKTOP */
-@media (min-width: 900px) {
-    .hero h1 {
-        font-size: 2rem;
+.description {
+    font-size: 1.05rem;
+    margin-bottom: 22px;
+}
+
+.infos {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
     }
 
-    .card-image img,
-    .placeholder {
-        height: 180px;
+    .cards-container > .card:last-child:nth-child(odd) {
+        max-width: 100%;
+    }
+
+    .actus-title h1 {
+        font-size: 1.8rem;
     }
 }
