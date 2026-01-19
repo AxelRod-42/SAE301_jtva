@@ -1,4 +1,4 @@
-/* --- RESET ET BASES --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +9,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #fff;
     width: 100%;
-    display: block; /* Important pour éviter l'écrasement à gauche */
+    display: block; 
 }
 
-/* --- HEADER --- */
+
 header {
     width: 100%;
 }
@@ -35,7 +35,7 @@ header {
 .menu ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Centre le menu horizontalement */
+    justify-content: center; 
     align-items: center;
     gap: 30px;
     padding: 40px 20px;
@@ -65,11 +65,11 @@ header {
     transform: scale(0.9);
 }
 
-/* --- CONTENU (CALENDRIER) --- */
+
 .calendrier-container {
     width: 90%;
-    max-width: 500px; /* Largeur max pour garder l'aspect application */
-    margin: 50px auto; /* CENTRE le calendrier sur la page */
+    max-width: 500px; 
+    margin: 50px auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -137,7 +137,7 @@ footer {
 }
 
 .reseau img {
-    max-width: 60px; /* Ajuste la taille des icônes pour qu'elles ne soient pas trop grandes */
+    max-width: 60px; 
     height: auto;
 }
 
