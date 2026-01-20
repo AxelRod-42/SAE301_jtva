@@ -1,4 +1,6 @@
 <?php
+
+include "../php/connexion.php";
 require_once __DIR__ . "/../php/team.php";
 
 $tObj = new Team();
@@ -73,9 +75,12 @@ foreach ($eq as $t) {
                 <div class="teams">
                 <?php foreach ($eqF as $t): ?>
                     <div class="team">
-                    <div class="team-img"></div>
-                    <p><?= htmlspecialchars($t["nom"] ?? $t["categorie"] ?? "Équipe") ?></p>
-                    </div>
+                        <img
+                            class="team-img"
+                            src="../image/<?= htmlspecialchars($t["image"] ?? "logo/logo_StMedard.png") ?>"
+                            alt="<?= htmlspecialchars($t["categorie"] ?? "Équipe") ?>">
+                        <p><?= htmlspecialchars($t["nom"] ?? $t["categorie"] ?? "Équipe") ?></p>
+                        </div>
                 <?php endforeach; ?>
 
                 <?php if (count($eqF) === 0): ?>
@@ -88,8 +93,11 @@ foreach ($eq as $t) {
                 <div class="teams">
                 <?php foreach ($eqM as $t): ?>
                     <div class="team">
-                    <div class="team-img"></div>
-                    <p><?= htmlspecialchars($t["nom"] ?? $t["categorie"] ?? "Équipe") ?></p>
+                        <img
+                            class="team-img"
+                            src="../image/<?= htmlspecialchars($t["image"] ?? "logo/logo_StMedard.png") ?>"
+                            alt="<?= htmlspecialchars($t["categorie"] ?? "Équipe") ?>">
+                        <p><?= htmlspecialchars($t["nom"] ?? $t["categorie"] ?? "Équipe") ?></p>
                     </div>
                 <?php endforeach; ?>
 
@@ -110,7 +118,7 @@ foreach ($eq as $t) {
             </div>
             <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
             <div class="fil">   
-                <p>Page d'accueil</p>
+                <p>Page club</p>
             </div>
             <div class="mentions">
                 <hr>

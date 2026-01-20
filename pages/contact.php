@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $message = trim($_POST["message"] ?? "");
 
   if ($nom && $prenom && $email && $message) {
-    $sql = "INSERT INTO inscriptions (nom, prenom, email, telephone, genre, message)
-            VALUES (:nom, :prenom, :email, :telephone, :genre, :message)";
+    $sql = "INSERT INTO inscriptions (nom_joueur, prenom, email_contact, telephone_contact, genre, message, date_envoi)
+        VALUES (:nom, :prenom, :email, :telephone, :genre, :message, NOW())";
 
     $stmt = $db->prepare($sql);
     $stmt->execute([
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
             <div class="fil">   
-                <p>Page d'accueil</p>
+                <p>Page contact</p>
             </div>
             <div class="mentions">
                 <hr>

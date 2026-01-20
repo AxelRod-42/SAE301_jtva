@@ -2,10 +2,15 @@
 
 include "../php/connexion.php";
 
-require_once __DIR__ . "/../php/event.php";
+$sql = "
+    SELECT titre, description, url_image, debut, lieu, public
+    FROM evenements
+    WHERE url_image IS NOT NULL
+      AND url_image != ''
+    ORDER BY debut ASC
+";
 
-$eventObj = new Event();
-$events = $eventObj->getAllEvents();
+$events = $db->query($sql)->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -41,43 +46,48 @@ $events = $eventObj->getAllEvents();
         </section>
     </header>
 
-<main>
+<main class="actualite-page">
 
-    <!-- TITRE DANS BLOC GRIS -->
-    <div class="actus-title">
+    <!-- TITRE -->
+    <section class="actualite-title">
         <h1>Nos équipes ont du talent !</h1>
         <p>Événements et temps forts du club</p>
-    </div>
+    </section>
 
-    <!-- CONTAINER DES CARDS -->
-    <div class="cards-container">
+    <!-- CARDS -->
+    <section class="events-grid">
 
         <?php foreach ($events as $event): ?>
-            <article class="card">
+            <article class="event-card"
+                style="background-image: url('../image/<?= htmlspecialchars($event['url_image']) ?>');">
 
-                <!-- Badge -->
-                <?php if ($event['public']): ?>
-                    <span class="badge badge-public">Événement public</span>
-                <?php else: ?>
-                    <span class="badge badge-staff">Réunion staff</span>
-                <?php endif; ?>
+                <div class="event-overlay"></div>
 
-                <h2><?= htmlspecialchars($event['titre']) ?></h2>
+                <div class="event-content">
 
-                <p class="description">
-                    <?= htmlspecialchars($event['description']) ?>
-                </p>
+                    <span class="event-badge <?= $event['public'] ? 'public' : 'staff' ?>">
+                        <?= $event['public'] ? 'Événement public' : 'Réunion staff' ?>
+                    </span>
 
-                <p class="infos">
-                    <?= date('d/m/Y H:i', strtotime($event['debut'])) ?>
-                    — <?= htmlspecialchars($event['lieu']) ?>
-                </p>
+                    <h2><?= htmlspecialchars($event['titre']) ?></h2>
 
+                    <?php if (!empty($event['description'])): ?>
+                        <p class="event-desc"><?= htmlspecialchars($event['description']) ?></p>
+                    <?php endif; ?>
+
+                    <?php if (!empty($event['debut'])): ?>
+                        <p class="event-date">
+                            <?= date('d/m/Y H:i', strtotime($event['debut'])) ?>
+                            <?php if (!empty($event['lieu'])): ?>
+                                — <?= htmlspecialchars($event['lieu']) ?>
+                            <?php endif; ?>
+                        </p>
+                    <?php endif; ?>
+
+                </div>
             </article>
         <?php endforeach; ?>
-
-    </div>
-
+    </section>
     </main>
     <footer>
         <section class="down">
@@ -89,7 +99,7 @@ $events = $eventObj->getAllEvents();
             </div>
             <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
             <div class="fil">   
-                <p>Page d'accueil</p>
+                <p>Page actualités</p>
             </div>
             <div class="mentions">
                 <hr>

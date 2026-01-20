@@ -79,7 +79,9 @@ try {
                     </div>
                 </div>
 
-            <img src="../image/31997446-terrain-basket.webp" alt="Adversaire" class="logo-equipe">
+            <img src="../image/<?= htmlspecialchars($m["image_exterieure"] ?? "logo/logo_StMedard.png") ?>"
+                class="logo-equipe"
+                alt="Équipe extérieure">
             </div>
         <?php endforeach; ?>
     </main>
@@ -93,7 +95,7 @@ try {
             </div>
             <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
             <div class="fil">   
-                <p>Page d'accueil</p>
+                <p>Page calendrier des matchs</p>
             </div>
             <div class="mentions">
                 <hr>
