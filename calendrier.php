@@ -33,7 +33,7 @@ $matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Calendrier - St Médard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <main class="calendrier-container">
