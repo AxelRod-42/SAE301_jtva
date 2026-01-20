@@ -647,3 +647,134 @@ button:hover {
       text-align: center;
       font-weight: 600;
     }
+
+
+
+    /**************** julian css ********/
+
+
+    /* BASE */
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: #f5f5f5;
+}
+
+/* PAGE */
+.actualite-page {
+    max-width: 1300px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+/* TITRE */
+.actualite-title {
+    background: #6f6f6f;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin-bottom: 50px;
+}
+
+.actualite-title h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.actualite-title p {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* GRID */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+/* CARD */
+.event-card {
+    position: relative;
+    height: 300px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* OVERLAY */
+.event-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.3)
+    );
+}
+
+/* CONTENT */
+.event-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 30px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* BADGES */
+.event-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.event-badge.public {
+    background: #f7e85c;
+    color: #000;
+}
+
+.event-badge.staff {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+/* TEXT */
+.event-content h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.event-desc {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.event-date {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card {
+        height: 260px;
+    }
+}
