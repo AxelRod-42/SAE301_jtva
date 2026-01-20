@@ -7,15 +7,14 @@ $pass = '';
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
     
-    // CORRECTION : On utilise ATTR_ERRMODE pour définir le mode, 
-    // et ERRMODE_EXCEPTION comme valeur.
+
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-// Requête SQL adaptée à ton fichier .sql
+
 $sql = "SELECT 
             m.score_local, 
             m.score_visiteur, 
@@ -35,7 +34,7 @@ $matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Calendrier des matchs</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <main class="calendrier-container">

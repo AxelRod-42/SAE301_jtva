@@ -70,7 +70,7 @@ body {
     background-color: #959595;
 }
 
-/* Dessin de la croix blanche à l'intérieur des carrés */
+
 .cross::before, .cross::after {
     content: '';
     position: absolute;
