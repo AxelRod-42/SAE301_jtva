@@ -36,7 +36,9 @@
                 <h1 class="titreB">Boutique</h1>
 
                 <article class="veste">
-                    <div class="vesteIMG"></div>
+                    <div class="vesteIMG">
+                        <img src=" ../image/boutique/veste.png" alt="Veste du club Saint-Médard Basket" width="100%" height="400">
+                    </div>
                     <div class="vesteTexte">Veste du club</div>
                 </article>
 
@@ -47,11 +49,15 @@
 
                 <div class="tshirt">
                     <article class="tshirtProduit">
-                        <div class="tshirtIMG"></div>
+                        <div class="tshirtIMG">
+                            <img src=" ../image/boutique/t-shirt2.png" alt="T-shirt blanc Saint-Médard Basket" width="250" height="250">
+                        </div>
                     </article>
 
                     <article class="tshirtProduit">
-                        <div class="tshirtIMG"></div>
+                        <div class="tshirtIMG">
+                            <img src=" ../image/boutique/t-shirt.png" alt="T-shirt noir Saint-Médard Basket" width="250" height="300">
+                        </div>
                     </article>
                 </div>
 
@@ -69,7 +75,7 @@
             </div>
             <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
             <div class="fil">   
-                <p>Page d'accueil</p>
+                <p>Page boutique</p>
             </div>
             <div class="mentions">
                 <hr>
