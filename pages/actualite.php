@@ -85,4 +85,4 @@ $events = $db->query($sql)->fetchAll(); // FETCH_ASSOC par défaut
 <button id="retourTop">⬆</button>
 
 </body>
-</html>
+</html> 
