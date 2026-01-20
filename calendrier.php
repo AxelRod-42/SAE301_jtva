@@ -1,22 +1,22 @@
 <?php
-// On active l'affichage des erreurs pour ne plus avoir la page noire "Erreur 500"
+// Activation des erreurs pour le développement
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 $host = 'localhost';
-$dbname = 'stmedard_basket'; // Nom exact trouvé dans ton SQL
+$dbname = 'stmedard_basket'; // Nom de ta base
 $user = 'root';
 $pass = ''; 
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ATTR_ERRMODE_EXCEPTION);
+    // CORRECTION : La constante exacte est PDO::ERRMODE_EXCEPTION
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-// Requête SQL corrigée selon tes tables réelles
-// Attention : ta table 'teams' n'a pas de colonne 'nom', on utilise 'categorie'
+// Requête SQL basée sur ton fichier .sql
 $sql = "SELECT 
             m.score_local, 
             m.score_visiteur, 
@@ -46,31 +46,37 @@ $matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="matchs-liste">
-            <?php foreach ($matchs as $match): ?>
-                <div class="match-card">
-                    <div class="equipe">
-                        <div class="logo-box">
-                            <img src="logo-basket.png" alt="Logo">
+            <?php if (count($matchs) > 0): ?>
+                <?php foreach ($matchs as $match): ?>
+                    <div class="match-card">
+                        <div class="equipe">
+                            <div class="logo-box">
+                                <div class="cross"></div>
+                            </div>
+                            <span><?php echo htmlspecialchars($match['cat_domicile'] ?? 'Équipe'); ?></span>
                         </div>
-                        <span><?php echo htmlspecialchars($match['cat_domicile'] ?? 'Equipe'); ?></span>
-                    </div>
 
-                    <div class="score-container">
-                        <span class="score-text">
-                            <?php 
-                                echo (empty($match['score_local'])) ? "score" : htmlspecialchars($match['score_local']) . " - " . htmlspecialchars($match['score_visiteur']); 
-                            ?>
-                        </span>
-                    </div>
-
-                    <div class="equipe">
-                        <div class="logo-box">
-                            <img src="logo-basket.png" alt="Logo">
+                        <div class="score-container">
+                            <span class="score-text">
+                                <?php 
+                                    echo (empty($match['score_local']) && $match['score_local'] !== '0') 
+                                    ? "score" 
+                                    : htmlspecialchars($match['score_local']) . " - " . htmlspecialchars($match['score_visiteur']); 
+                                ?>
+                            </span>
                         </div>
-                        <span><?php echo htmlspecialchars($match['cat_exterieur'] ?? 'Equipe'); ?></span>
+
+                        <div class="equipe">
+                            <div class="logo-box">
+                                <div class="cross"></div>
+                            </div>
+                            <span><?php echo htmlspecialchars($match['cat_exterieur'] ?? 'Équipe'); ?></span>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Aucun match prévu pour le moment.</p>
+            <?php endif; ?>
         </div>
     </main>
 </body>

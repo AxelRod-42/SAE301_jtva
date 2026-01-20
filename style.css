@@ -1,6 +1,7 @@
+
 body {
     background-color: #fff;
-    font-family: 'Arial', sans-serif;
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -15,36 +16,35 @@ body {
     align-items: center;
 }
 
-
 .header-titre {
     background-color: #595959;
-    width: 90%;
+    width: 100%;
     border: 2px solid #333;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
 }
 
 .header-titre h1 {
     color: white;
     margin: 0;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: normal;
 }
 
-
 .match-card {
-    background-color: #959595; 
+    background-color: #959595;
     width: 100%;
-    height: 110px;
     border: 2px solid #000;
     border-radius: 15px;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .equipe {
@@ -52,29 +52,34 @@ body {
     flex-direction: column;
     align-items: center;
     color: white;
-    font-size: 12px;
+    font-size: 0.8rem;
 }
-
 
 .logo-box {
-    width: 65px;
-    height: 65px;
-    background-color: #959595;
+    width: 70px;
+    height: 70px;
     border: 1px solid #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     margin-bottom: 5px;
+    background-color: #959595;
 }
 
-.logo-box img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
+
+.cross::before, .cross::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
 }
+.cross::before { transform: translate(-50%, -50%) rotate(45deg); }
+.cross::after { transform: translate(-50%, -50%) rotate(-45deg); }
 
 .score-text {
     color: white;
-    font-size: 16px;
     font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: lowercase;
 }
