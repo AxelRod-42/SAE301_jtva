@@ -6,23 +6,25 @@ $pass = '';
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+    
+    // CORRECTION : On utilise ATTR_ERRMODE pour définir le mode, 
+    // et ERRMODE_EXCEPTION comme valeur.
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
 } catch (PDOException $e) {
-    die("Erreur : " . $e->getMessage());
+    die("Erreur de connexion : " . $e->getMessage());
 }
 
-// Requête SQL pour récupérer les noms des images de la table 'teams'
+// Requête SQL adaptée à ton fichier .sql
 $sql = "SELECT 
             m.score_local, 
             m.score_visiteur, 
             t_dom.categorie AS cat_domicile, 
-            t_dom.image AS img_domicile, 
-            t_ext.categorie AS cat_exterieur,
-            t_ext.image AS img_exterieur
+            t_ext.categorie AS cat_exterieur
         FROM matchs m
         LEFT JOIN teams t_dom ON m.equipe_domicile_id = t_dom.id
         LEFT JOIN teams t_ext ON m.equipe_exterieure_id = t_ext.id
-        LIMIT 3";
+        ORDER BY m.date_match ASC";
 
 $stmt = $db->query($sql);
 $matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -32,46 +34,38 @@ $matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Calendrier - St Médard</title>
+    <title>Calendrier des matchs</title>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <main class="calendrier-container">
-        <div class="header-titre">
-            <h1>Calendrier des matchs</h1>
+        <div class="titre-container">
+            <h1 class="titre-page">Calendrier des matchs</h1>
         </div>
 
-        <div class="matchs-liste">
-            <?php foreach ($matchs as $match): ?>
-                <div class="match-card">
-                    <div class="equipe">
-                        <div class="logo-box">
-                            <?php if (!empty($match['img_domicile'])): ?>
-                                <img src="images/<?php echo htmlspecialchars($match['img_domicile']); ?>" alt="Logo">
-                            <?php else: ?>
-                                <div class="cross"></div>
-                            <?php endif; ?>
-                        </div>
-                        <span><?php echo htmlspecialchars($match['cat_domicile'] ?? 'Équipe'); ?></span>
-                    </div>
-
-                    <div class="score-text">
-                        <?php echo (empty($match['score_local'])) ? "score" : htmlspecialchars($match['score_local'])." - ".htmlspecialchars($match['score_visiteur']); ?>
-                    </div>
-
-                    <div class="equipe">
-                        <div class="logo-box">
-                            <?php if (!empty($match['img_exterieur'])): ?>
-                                <img src="images/<?php echo htmlspecialchars($match['img_exterieur']); ?>" alt="Logo">
-                            <?php else: ?>
-                                <div class="cross"></div>
-                            <?php endif; ?>
-                        </div>
-                        <span><?php echo htmlspecialchars($match['cat_exterieur'] ?? 'Équipe'); ?></span>
-                    </div>
+        <?php foreach ($matchs as $match): ?>
+            <div class="match-card">
+                <div class="equipe-bloc">
+                    <div class="logo-placeholder"></div>
+                    <p><?php echo htmlspecialchars($match['cat_domicile'] ?? 'Équipe'); ?></p>
                 </div>
-            <?php endforeach; ?>
-        </div>
+
+                <div class="score-label">
+                    <?php 
+                        if (empty($match['score_local']) && $match['score_local'] !== '0') {
+                            echo "score";
+                        } else {
+                            echo htmlspecialchars($match['score_local']) . " - " . htmlspecialchars($match['score_visiteur']);
+                        }
+                    ?>
+                </div>
+
+                <div class="equipe-bloc">
+                    <div class="logo-placeholder"></div>
+                    <p><?php echo htmlspecialchars($match['cat_exterieur'] ?? 'Équipe'); ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </main>
 </body>
 </html>
