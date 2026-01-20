@@ -1,5 +1,12 @@
 <?php
+<<<<<<< HEAD
 require_once "database.php";
+=======
+
+include "../php/connexion.php";
+
+require_once __DIR__ . "/../php/event.php";
+>>>>>>> origin/main
 
 $pdo = Database::getConnection();
 
@@ -17,10 +24,18 @@ $events = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Actualités - Saint Médard Basket</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/SAE_301/css/style.css">
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - Saint-Médard Basket</title>
+    <link rel="stylesheet" href="../CSS/style.css"> <!--Lien vers le css-->
+    <link rel="icon" type="image/x-icon" href="../image/logo/favicon.ico"><!--icone du site-->
+    <script src="../JS/script.js" defer></script>
+>>>>>>> origin/main
 </head>
 <body>
 

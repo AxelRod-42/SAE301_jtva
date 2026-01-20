@@ -1,10 +1,32 @@
+<?php
+require_once __DIR__ . "/../php/team.php";
+
+$tObj = new Team();
+$eq = $tObj->getAll();
+
+$eqF = [];
+$eqM = [];
+
+foreach ($eq as $t) {
+
+  $cat = strtolower($t["categorie"] ?? "");
+  $gen = strtolower($t["genre"] ?? "");
+
+  if (strpos($gen, "f") !== false || strpos($cat, "f") !== false || strpos($cat, "fémin") !== false) {
+    $eqF[] = $t;
+  } else {
+    $eqM[] = $t;
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Saint-Médard Basket</title>
+    <title>Club - Saint-Médard Basket</title>
     <link rel="stylesheet" href="../CSS/style.css"> <!--Lien vers le css-->
     <link rel="icon" type="image/x-icon" href="../image/logo/favicon.ico"><!--icone du site-->
     <script src="../JS/script.js" defer></script>
@@ -31,7 +53,7 @@
         </section>
     </header>
     <main class="mainB">
-         <section class="club">
+            <section class="club">
 
                 <h1 class="title">Halle des sports</h1>
 
@@ -49,36 +71,33 @@
                 <h2 class="subtitle">Nos équipes féminines</h2>
 
                 <div class="teams">
-                <div class="team">
+                <?php foreach ($eqF as $t): ?>
+                    <div class="team">
                     <div class="team-img"></div>
-                    <p>Équipe...</p>
-                </div>
-                <div class="team">
-                    <div class="team-img"></div>
-                    <p>Équipe...</p>
-                </div>
-                <div class="team">
-                    <div class="team-img"></div>
-                    <p>Équipe...</p>
-                </div>
+                    <p><?= htmlspecialchars($t["nom"] ?? $t["categorie"] ?? "Équipe") ?></p>
+                    </div>
+                <?php endforeach; ?>
+
+                <?php if (count($eqF) === 0): ?>
+                    <p>Aucune équipe féminine pour le moment.</p>
+                <?php endif; ?>
                 </div>
 
                 <h2 class="subtitle">Nos équipes masculines</h2>
 
                 <div class="teams">
-                <div class="team">
+                <?php foreach ($eqM as $t): ?>
+                    <div class="team">
                     <div class="team-img"></div>
-                    <p>Équipe...</p>
+                    <p><?= htmlspecialchars($t["nom"] ?? $t["categorie"] ?? "Équipe") ?></p>
+                    </div>
+                <?php endforeach; ?>
+
+                <?php if (count($eqM) === 0): ?>
+                    <p>Aucune équipe masculine pour le moment.</p>
+                <?php endif; ?>
                 </div>
-                <div class="team">
-                    <div class="team-img"></div>
-                    <p>Équipe...</p>
-                </div>
-                <div class="team">
-                    <div class="team-img"></div>
-                    <p>Équipe...</p>
-                </div>
-                </div>
+
             </section>
     </main>
     <footer>
