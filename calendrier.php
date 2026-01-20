@@ -35,7 +35,7 @@ $matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Calendrier des matchs</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="calendrier-container">
