@@ -1,3 +1,18 @@
+<?php
+
+include "../php/connexion.php";
+require_once __DIR__ . "/../php/matchGame.php";
+
+$mObj = new MatchGame();
+
+try {
+  $matchs = $mObj->getAllWithTeam();
+} catch (PDOException $e) {
+  die($e->getMessage());
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,43 +50,40 @@
             <h1 class="titre-page">Calendrier des matchs</h1>
         </div>
 
-        <div class="match-card">
-            <img src="../image/31997446-terrain-basket.webp" alt="Logo Domicile" class="logo-equipe">
-            <div class="score-label">score</div>
-            <img src="../image/logo/logo_StMedard.png" alt="Logo Extérieur" class="logo-equipe">
-        </div>
+        <?php if (count($matchs) === 0): ?>
+            <p>Aucun match pour le moment.</p>
+        <?php endif; ?>
 
-        <div class="match-card">
-             <img src="../image/31997446-terrain-basket.webp" alt="Logo Domicile" class="logo-equipe">
-            <div class="score-label">score</div>
-            <img src="../image/logo/logo_StMedard.png" alt="Logo Extérieur" class="logo-equipe">
-        </div>
+        <?php foreach ($matchs as $m): ?>
+            <div class="match-card">
 
-        <div class="match-card">
-             <img src="../image/31997446-terrain-basket.webp" alt="Logo Domicile" class="logo-equipe">
-            <div class="score-label">score</div>
-            <img src="../image/logo/logo_StMedard.png" alt="Logo Extérieur" class="logo-equipe">
-        </div>
+                <img src="../image/<?= htmlspecialchars($m["image_domicile"] ?? "logo/logo_StMedard.png") ?>"
+                    class="logo-equipe"
+                    alt="Équipe domicile">
 
-        <div class="match-card">
-             <img src="../image/31997446-terrain-basket.webp" alt="Logo Domicile" class="logo-equipe">
-            <div class="score-label">score</div>
-            <img src="../image/logo/logo_StMedard.png" alt="Logo Extérieur" class="logo-equipe">
-        </div>
+                <div class="score-label">
+                    <div>
+                        <?= htmlspecialchars($m["equipe_domicile"] ?? "—") ?>
+                        vs
+                        <?= htmlspecialchars($m["equipe_exterieure"] ?? "—") ?>
+                    </div>
 
-        <div class="match-card">
-             <img src="../image/31997446-terrain-basket.webp" alt="Logo Domicile" class="logo-equipe">
-            <div class="score-label">score</div>
-            <img src="../image/logo/logo_StMedard.png" alt="Logo Extérieur" class="logo-equipe">
-        </div>
+                    <div>
+                        <?= htmlspecialchars($m["date_match"]) ?> • <?= htmlspecialchars($m["lieu"]) ?>
+                    </div>
 
-        <div class="match-card">
-             <img src="../image/31997446-terrain-basket.webp" alt="Logo Domicile" class="logo-equipe">
-            <div class="score-label">score</div>
-            <img src="../image/logo/logo_StMedard.png" alt="Logo Extérieur" class="logo-equipe">
-        </div>
+                    <div>
+                        <?= htmlspecialchars($m["score_local"] ?? "-") ?>
+                        -
+                        <?= htmlspecialchars($m["score_visiteur"] ?? "-") ?>
+                    </div>
+                </div>
+
+            <img src="../image/31997446-terrain-basket.webp" alt="Adversaire" class="logo-equipe">
+            </div>
+        <?php endforeach; ?>
     </main>
-    <footer>
+        <footer>
         <section class="down">
             <div class="reseau">
                 <a href=""><img src="../image/icone/facebook.png" alt="Facebook" width="100" height="100"></a>

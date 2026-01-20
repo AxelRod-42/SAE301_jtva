@@ -25,12 +25,36 @@ class MatchGame
        Méthodes métier
     ====================== */
 
-    public function getByTeam(int $teamId): array
+    public function getByTeam(string $teamId): array
     {
         $sql = "SELECT * FROM matchs WHERE team_id = :team_id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['team_id' => $teamId]);
         return $stmt->fetchAll();
+    }
+
+    public function getAll(): array
+    {
+        $sql = "SELECT * FROM matchs ORDER BY date_match DESC";
+        return $this->db->query($sql)->fetchAll();
+    }
+
+    public function getAllWithTeam(): array
+    {
+        $sql = "
+            SELECT 
+            m.*,
+            td.categorie AS equipe_domicile,
+            td.image AS image_domicile,
+            te.categorie AS equipe_exterieure,
+            te.image AS image_exterieure
+            FROM matchs m
+            LEFT JOIN teams td ON td.id = m.equipe_domicile_id
+            LEFT JOIN teams te ON te.id = m.equipe_exterieure_id
+            ORDER BY m.date_match DESC
+        ";
+
+        return $this->db->query($sql)->fetchAll();
     }
 
     /* =====================
