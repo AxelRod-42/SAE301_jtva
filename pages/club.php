@@ -32,6 +32,7 @@ foreach ($eq as $t) {
     <link rel="stylesheet" href="../CSS/style.css"> <!--Lien vers le css-->
     <link rel="icon" type="image/x-icon" href="../image/logo/favicon.ico"><!--icone du site-->
     <script src="../JS/script.js" defer></script>
+    <script src="../JS/map.js" defer></script>
 </head>
 
 <body>
@@ -59,8 +60,8 @@ foreach ($eq as $t) {
 
                 <h1 class="title">Halle des sports</h1>
 
-                <div class="map">
-                    <span>Google Maps</span>
+                <div class="map" id="mapBox">
+                    <span>Chargement de la carte...</span>
                 </div>
 
                 <h2 class="subtitle">Notre gymnase</h2>
