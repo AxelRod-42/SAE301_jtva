@@ -2,12 +2,11 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : lun. 19 jan. 2026 à 11:41
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 22 jan. 2026 à 17:26
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -21,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `stmedard_basket`
 --
-CREATE DATABASE IF NOT EXISTS `stmedard_basket` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `stmedard_basket`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +27,6 @@ USE `stmedard_basket`;
 -- Structure de la table `articles`
 --
 
-DROP TABLE IF EXISTS `articles`;
 CREATE TABLE `articles` (
   `id_articles` varchar(50) NOT NULL,
   `titre` varchar(50) DEFAULT NULL,
@@ -43,16 +39,10 @@ CREATE TABLE `articles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `articles`:
---   `auteur_id`
---       `utilisateurs` -> `id`
---
-
---
 -- Déchargement des données de la table `articles`
 --
 
-INSERT IGNORE INTO `articles` (`id_articles`, `titre`, `resume`, `contenu`, `date_publication`, `statut`, `auteur_id`, `image_url`) VALUES
+INSERT INTO `articles` (`id_articles`, `titre`, `resume`, `contenu`, `date_publication`, `statut`, `auteur_id`, `image_url`) VALUES
 ('1', 'Victoire des U18', 'Un match intense remporté par les Tigres Bleus', 'Contenu complet de l’article…', '2025-02-12 21:00:00', 'publie', 'u1', 'articles/arbitrage1.jpg'),
 ('2', 'Nouveau Sponsor', 'Le club accueille un nouveau partenaire', 'Contenu complet de l’article…', '2025-02-10 10:00:00', 'publie', 'u2', 'articles/U18Fqualif.jpg'),
 ('3', 'Préparation du Tournoi', 'Les équipes se préparent activement', 'Contenu complet de l’article…', '2025-02-08 14:00:00', 'publie', 'u1', 'articles/image_club.jpg'),
@@ -65,7 +55,6 @@ INSERT IGNORE INTO `articles` (`id_articles`, `titre`, `resume`, `contenu`, `dat
 -- Structure de la table `disputes`
 --
 
-DROP TABLE IF EXISTS `disputes`;
 CREATE TABLE `disputes` (
   `id` char(36) NOT NULL,
   `id_equipe` char(36) NOT NULL,
@@ -75,17 +64,12 @@ CREATE TABLE `disputes` (
   `resultat` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- RELATIONS POUR LA TABLE `disputes`:
---
-
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `evenements`
 --
 
-DROP TABLE IF EXISTS `evenements`;
 CREATE TABLE `evenements` (
   `id` char(36) NOT NULL,
   `titre` varchar(255) NOT NULL,
@@ -100,14 +84,10 @@ CREATE TABLE `evenements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `evenements`:
---
-
---
 -- Déchargement des données de la table `evenements`
 --
 
-INSERT IGNORE INTO `evenements` (`id`, `titre`, `description`, `url_image`, `debut`, `fin`, `lieu`, `team_id`, `public`, `id_categorie`) VALUES
+INSERT INTO `evenements` (`id`, `titre`, `description`, `url_image`, `debut`, `fin`, `lieu`, `team_id`, `public`, `id_categorie`) VALUES
 ('', 'Planning 1', NULL, 'calendrier/basket1.jpg', '', '', '', NULL, '', NULL),
 ('1', 'Soirée Tartiflette\r\n', 'Soirée de réunion entre amis & famille', 'evenements/fete_31_janvier.jpg', '2025-02-15 18:00:00', '2025-02-15 20:00:00', 'Gymnase A', 't1', '1', NULL),
 ('2', 'Réunion Staff', 'Préparation du tournoi régional', 'evenements/sponsor3.jpg', '2025-02-18 19:00:00', '2025-02-18 20:00:00', 'Salle de réunion', 't2', '0', NULL),
@@ -125,7 +105,6 @@ INSERT IGNORE INTO `evenements` (`id`, `titre`, `description`, `url_image`, `deb
 -- Structure de la table `inscriptions`
 --
 
-DROP TABLE IF EXISTS `inscriptions`;
 CREATE TABLE `inscriptions` (
   `id` char(36) NOT NULL,
   `nom_joueur` text DEFAULT NULL,
@@ -138,17 +117,14 @@ CREATE TABLE `inscriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `inscriptions`:
---
-
---
 -- Déchargement des données de la table `inscriptions`
 --
 
-INSERT IGNORE INTO `inscriptions` (`id`, `nom_joueur`, `prenom`, `email_contact`, `telephone_contact`, `genre`, `message`, `date_envoi`) VALUES
-('i1', 'Thomas Leroy', NULL, 'parent1@mail.com', '0600000010', 'homme', '', '2026-01-17 19:13:30'),
-('i2', 'Emma Dubois', NULL, 'parent2@mail.com', '0600000020', 'homme', '', '2026-01-17 19:13:30'),
-('i3', 'Lucas Martin', NULL, 'parent3@mail.com', '0600000030', 'homme', '', '2026-01-17 19:13:30');
+INSERT INTO `inscriptions` (`id`, `nom_joueur`, `prenom`, `email_contact`, `telephone_contact`, `genre`, `message`, `date_envoi`) VALUES
+('1a21c26b-f7af-11f0-82e5-088fc304bed2', 'Balde', 'Alejandro', 'viscabarca@hotmail.com', '0785695475', 'homme', 'Je souhaiterai acheter vos maillots', '2026-01-22 16:26:04'),
+('i1', 'Leroy', 'Thomas', 'parent1@mail.com', '0600000010', 'homme', '', '2026-01-17 19:13:30'),
+('i2', 'Dubois', 'Emma', 'parent2@mail.com', '0600000020', 'homme', '', '2026-01-17 19:13:30'),
+('i3', 'Martin', 'Lucas', 'parent3@mail.com', '0600000030', 'homme', '', '2026-01-17 19:13:30');
 
 -- --------------------------------------------------------
 
@@ -156,7 +132,6 @@ INSERT IGNORE INTO `inscriptions` (`id`, `nom_joueur`, `prenom`, `email_contact`
 -- Structure de la table `joueurs`
 --
 
-DROP TABLE IF EXISTS `joueurs`;
 CREATE TABLE `joueurs` (
   `id` char(36) NOT NULL,
   `numero` int(11) DEFAULT NULL,
@@ -171,18 +146,10 @@ CREATE TABLE `joueurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `joueurs`:
---   `equipe_id`
---       `teams` -> `id`
---   `utilisateur_id`
---       `utilisateurs` -> `id`
---
-
---
 -- Déchargement des données de la table `joueurs`
 --
 
-INSERT IGNORE INTO `joueurs` (`id`, `numero`, `poste`, `annee_naissance`, `equipe_id`, `utilisateur_id`, `url_photo`, `biographie`, `prenom`, `nom`) VALUES
+INSERT INTO `joueurs` (`id`, `numero`, `poste`, `annee_naissance`, `equipe_id`, `utilisateur_id`, `url_photo`, `biographie`, `prenom`, `nom`) VALUES
 ('0ec2463e-f2d5-11f0-8a12-cc5ef8477c38', NULL, NULL, NULL, 'e5817aec-f2d0-11f0-8a12-cc5ef8477c38', NULL, NULL, NULL, 'Joueur1', 'U9'),
 ('0ec25eae-f2d5-11f0-8a12-cc5ef8477c38', NULL, NULL, NULL, 'e5817aec-f2d0-11f0-8a12-cc5ef8477c38', NULL, NULL, NULL, 'Joueur2', 'U9'),
 ('0eca7ff4-f2d5-11f0-8a12-cc5ef8477c38', NULL, NULL, NULL, 'e582b596-f2d0-11f0-8a12-cc5ef8477c38', 'u3', NULL, NULL, 'Joueur1', 'U11_1'),
@@ -218,7 +185,6 @@ INSERT IGNORE INTO `joueurs` (`id`, `numero`, `poste`, `annee_naissance`, `equip
 -- Structure de la table `matchs`
 --
 
-DROP TABLE IF EXISTS `matchs`;
 CREATE TABLE `matchs` (
   `id` char(36) NOT NULL,
   `equipe_domicile_id` char(36) DEFAULT NULL,
@@ -231,18 +197,10 @@ CREATE TABLE `matchs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `matchs`:
---   `equipe_domicile_id`
---       `teams` -> `id`
---   `equipe_exterieure_id`
---       `teams` -> `id`
---
-
---
 -- Déchargement des données de la table `matchs`
 --
 
-INSERT IGNORE INTO `matchs` (`id`, `equipe_domicile_id`, `equipe_exterieure_id`, `date_match`, `lieu`, `score_local`, `score_visiteur`, `statut`) VALUES
+INSERT INTO `matchs` (`id`, `equipe_domicile_id`, `equipe_exterieure_id`, `date_match`, `lieu`, `score_local`, `score_visiteur`, `statut`) VALUES
 ('m1', NULL, NULL, '2025-02-10 18:00:00', 'Gymnase A', NULL, NULL, ''),
 ('m2', NULL, NULL, '2025-02-12 20:30:00', 'Gymnase B', NULL, NULL, ''),
 ('m3', NULL, NULL, '2025-02-10 18:00:00', 'Gymnase A', NULL, NULL, 'programme'),
@@ -254,7 +212,6 @@ INSERT IGNORE INTO `matchs` (`id`, `equipe_domicile_id`, `equipe_exterieure_id`,
 -- Structure de la table `media`
 --
 
-DROP TABLE IF EXISTS `media`;
 CREATE TABLE `media` (
   `id` char(36) NOT NULL,
   `url` text NOT NULL,
@@ -263,14 +220,10 @@ CREATE TABLE `media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `media`:
---
-
---
 -- Déchargement des données de la table `media`
 --
 
-INSERT IGNORE INTO `media` (`id`, `url`, `type`, `texte_alternatif`) VALUES
+INSERT INTO `media` (`id`, `url`, `type`, `texte_alternatif`) VALUES
 ('m1', 'gymnase/salle_de_basket_interieur.jpg', 'image', 'Logo des Tigres Bleus'),
 ('m2', 'gymnase/halle_de_sport.jpg', 'image', 'Photo du match U18'),
 ('m3', 'https://example.com/video_resume.mp4', 'video', 'Résumé du match'),
@@ -283,7 +236,6 @@ INSERT IGNORE INTO `media` (`id`, `url`, `type`, `texte_alternatif`) VALUES
 -- Structure de la table `sponsors`
 --
 
-DROP TABLE IF EXISTS `sponsors`;
 CREATE TABLE `sponsors` (
   `id` char(36) NOT NULL,
   `nom` text DEFAULT NULL,
@@ -292,16 +244,10 @@ CREATE TABLE `sponsors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `sponsors`:
---   `logo_id`
---       `media` -> `id`
---
-
---
 -- Déchargement des données de la table `sponsors`
 --
 
-INSERT IGNORE INTO `sponsors` (`id`, `nom`, `site_web`, `logo_id`) VALUES
+INSERT INTO `sponsors` (`id`, `nom`, `site_web`, `logo_id`) VALUES
 ('s1', 'SportPlus', 'https://sportplus.com', 'm1'),
 ('s2', 'EnergieMax', 'https://energimax.fr', NULL),
 ('s3', 'BasketShop', 'https://basketshop.fr', 'm2');
@@ -312,7 +258,6 @@ INSERT IGNORE INTO `sponsors` (`id`, `nom`, `site_web`, `logo_id`) VALUES
 -- Structure de la table `teams`
 --
 
-DROP TABLE IF EXISTS `teams`;
 CREATE TABLE `teams` (
   `id` char(36) NOT NULL,
   `categorie` text DEFAULT NULL,
@@ -323,16 +268,10 @@ CREATE TABLE `teams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `teams`:
---   `entraineur_id`
---       `utilisateurs` -> `id`
---
-
---
 -- Déchargement des données de la table `teams`
 --
 
-INSERT IGNORE INTO `teams` (`id`, `categorie`, `image`, `entraineur_id`, `genre`, `creneaux_entrainement`) VALUES
+INSERT INTO `teams` (`id`, `categorie`, `image`, `entraineur_id`, `genre`, `creneaux_entrainement`) VALUES
 ('e5817aec-f2d0-11f0-8a12-cc5ef8477c38', 'U9', 'equipes/U9.jpg', 'u1', NULL, NULL),
 ('e582b596-f2d0-11f0-8a12-cc5ef8477c38', 'U11_1', 'equipes/U11-1.jpg', 'u2', NULL, NULL),
 ('e582b7f3-f2d0-11f0-8a12-cc5ef8477c38', 'U11_2', 'equipes/U11-2.jpg', 'u1', NULL, NULL),
@@ -354,7 +293,6 @@ INSERT IGNORE INTO `teams` (`id`, `categorie`, `image`, `entraineur_id`, `genre`
 -- Structure de la table `utilisateurs`
 --
 
-DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE `utilisateurs` (
   `id` char(36) NOT NULL,
   `mail` varchar(255) NOT NULL,
@@ -367,14 +305,10 @@ CREATE TABLE `utilisateurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELATIONS POUR LA TABLE `utilisateurs`:
---
-
---
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT IGNORE INTO `utilisateurs` (`id`, `mail`, `mot_de_passe`, `role`, `prenom`, `nom`, `telephone`, `actif`) VALUES
+INSERT INTO `utilisateurs` (`id`, `mail`, `mot_de_passe`, `role`, `prenom`, `nom`, `telephone`, `actif`) VALUES
 ('admin1', 'admin@mail.com', 'pass', 'admin', 'Sophie', 'Leroy', '0600000000', 1),
 ('p1', 'parent@mail.com', 'pass', 'parent', 'Claire', 'Moreau', '0600000006', 1),
 ('u1', 'coach1@mail.com', 'pass', 'coach', 'Marc', 'Durand', '0600000001', NULL),
@@ -491,7 +425,6 @@ ALTER TABLE `sponsors`
 --
 ALTER TABLE `teams`
   ADD CONSTRAINT `teams_ibfk_1` FOREIGN KEY (`entraineur_id`) REFERENCES `utilisateurs` (`id`);
-SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

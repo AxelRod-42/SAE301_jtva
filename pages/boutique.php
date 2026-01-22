@@ -77,6 +77,9 @@
             <div class="fil">   
                 <p>Page boutique</p>
             </div>
+            <div class="admin">
+                <a href="../php/admin/login.php">Espace administration</a>
+            </div>
             <div class="mentions">
                 <hr>
                 <p><strong>© 2026 [St Médard Basket].</strong> Tous droits réservés. Mentions légales | Politique de confidentialité</p>

@@ -83,22 +83,25 @@ $events = $db->query($sql)->fetchAll(); // FETCH_ASSOC par défaut
 </main>
 
 <footer>
-  <section class="down">
-    <div class="reseau">
-      <a href=""><img src="../image/icone/facebook.png" alt="Facebook" width="100" height="100"></a>
-      <img src="../image/icone/arrow2.png" alt="flèche" width="100" height="75">
-      <img src="../image/icone/arrow.png" alt="flèche" width="100" height="75">
-      <a href="https://www.instagram.com/saint.medard.basket/"><img src="../image/icone/instagram.png" alt="Instagram" width="100" height="100"></a>
-    </div>
-    <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
-    <div class="fil">
-      <p>Page actualités</p>
-    </div>
-    <div class="mentions">
-      <hr>
-      <p><strong>© 2026 [St Médard Basket].</strong> Tous droits réservés. Mentions légales | Politique de confidentialité</p>
-    </div>
-  </section>
+    <section class="down">
+      <div class="reseau">
+        <a href=""><img src="../image/icone/facebook.png" alt="Facebook" width="100" height="100"></a>
+        <img src="../image/icone/arrow2.png" alt="flèche" width="100" height="75">
+        <img src="../image/icone/arrow.png" alt="flèche" width="100" height="75">
+        <a href="https://www.instagram.com/saint.medard.basket/"><img src="../image/icone/instagram.png" alt="Instagram" width="100" height="100"></a>
+      </div>
+      <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
+      <div class="fil">
+        <p>Page actualités</p>
+      </div>
+      <div class="admin">
+                  <a href="../php/admin/login.php">Espace administration</a>
+              </div>
+      <div class="mentions">
+        <hr>
+        <p><strong>© 2026 [St Médard Basket].</strong> Tous droits réservés. Mentions légales | Politique de confidentialité</p>
+      </div>
+    </section>
 </footer>
 
 <button id="retourTop">⬆</button>

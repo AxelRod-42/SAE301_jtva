@@ -34,6 +34,61 @@ html, body {
     overflow-x: hidden; 
 }
 
+/********************** ADMIN *********************/
+
+.admin{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.admin a{
+    position: relative;
+    letter-spacing: 1.5px;
+    background-color:#1e1e1e;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 18px;
+}
+
+.admin a:hover{
+    color: #F6EC28;
+    transition: 0.6s ease;
+}
+
+.admin a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 8px;      
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;     
+    height: 3px;
+    background-color: #F6EC28;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.admin a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.loginF {
+    margin: auto;
+    padding: 30px;
+    max-width: 400px;
+}
+
+.loginS{
+    margin: 30px;
+}
+
+.inboxAdmin {
+    margin: 40px;
+    font-family: Montserrat, sans-serif;
+}
+
 /************************** JS **************************/
 
 #retourTop:hover {
@@ -767,7 +822,7 @@ footer p {
 
 .contact-tag {
       text-align: center;
-      font-size: 20px;
+      font-size: 30px;
       font-weight: bold;
       margin-bottom: 20px;
     }
@@ -798,6 +853,7 @@ textarea {
     }
 
 button {
+      font-family: Montserrat;
       padding: 12px;
       background: #111827;
       color: #fff;
@@ -810,7 +866,7 @@ button {
       align-items: center;
       justify-content: center;
       gap: 6px;
-    }
+}
 
 button:hover {
       background: #1f2937;

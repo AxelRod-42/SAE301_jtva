@@ -13,18 +13,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $message = trim($_POST["message"] ?? "");
 
   if ($nom && $prenom && $email && $message) {
-    $sql = "INSERT INTO inscriptions (nom_joueur, prenom, email_contact, telephone_contact, genre, message, date_envoi)
-        VALUES (:nom, :prenom, :email, :telephone, :genre, :message, NOW())";
+    $sql = "
+      INSERT INTO inscriptions
+      (id, nom_joueur, prenom, email_contact, telephone_contact, genre, message)
+      VALUES
+      (UUID(), :nom, :prenom, :email, :telephone, :genre, :message)
+      ";
 
-    $stmt = $db->prepare($sql);
-    $stmt->execute([
-      ":nom" => $nom,
-      ":prenom" => $prenom,
-      ":email" => $email,
-      ":telephone" => $telephone,
-      ":genre" => $genre,
-      ":message" => $message
-    ]);
+      $stmt = $db->prepare($sql);
+
+  try {
+      $stmt->execute([
+          ":nom" => $nom,
+          ":prenom" => $prenom,
+          ":email" => $email,
+          ":telephone" => $telephone,
+          ":genre" => $genre,
+          ":message" => $message
+      ]);
+  } catch (PDOException $e) {
+      die("Erreur INSERT inscriptions : " . $e->getMessage());
+  }
 
     $message_confirmation = "Votre message a bien été envoyé.";
   } else {
@@ -108,6 +117,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <br><p><strong>Suivez-nous sur les réseaux sociaux !</strong></p>
             <div class="fil">   
                 <p>Page contact</p>
+            </div>
+            <div class="admin">
+                <a href="../php/admin/login.php">Espace administration</a>
             </div>
             <div class="mentions">
                 <hr>

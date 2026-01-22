@@ -1,7 +1,5 @@
 <?php 
 
-session_start();
-
 $host = "localhost";
 $dbname = "stmedard_basket";
 $user = "root";
