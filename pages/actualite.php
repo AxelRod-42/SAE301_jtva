@@ -21,6 +21,25 @@ $events = $db->query($sql)->fetchAll(); // FETCH_ASSOC par défaut
   <script src="../JS/script.js" defer></script>
 </head>
 <body>
+    <header>
+        <section class="top">
+            <nav class="menu">
+                <ul>
+                    <li><a href="club.php">Club</a></li>
+                    <li><a href="boutique.php">Boutique</a></li>
+                    <li><a href="calendrier.php">Calendrier</a></li>
+                    <div class="logo">
+                        <a href="../index.php"><img src="../image/logo/logo_StMedard.png" alt="Logo Saint-Médard Basket" width="250" height="200"></a>
+                    </div>
+                    <li><a href="actualite.php">Actualités</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                    <div class="panier">
+                        <a href="boutique.php"><img src="../image/icone/panier.png" alt="Panier" width="100" height="100"></a>
+                    </div>
+                </ul>
+            </nav>
+        </section>
+    </header>
 
 <main class="actualite-page">
 
@@ -85,4 +104,4 @@ $events = $db->query($sql)->fetchAll(); // FETCH_ASSOC par défaut
 <button id="retourTop">⬆</button>
 
 </body>
-</html> 
+</html>
